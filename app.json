@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "reclaim",
+    "slug": "reclaim",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
