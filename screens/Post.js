@@ -1,11 +1,11 @@
 import React from "react";
 import { View, Text, StatusBar, StyleSheet } from "react-native";
 
-export default MapView = () => {
+export default Post = () => {
   return (
     <View>
       <StatusBar style="auto" />
-      <Text>MapView</Text>
+      <Text>Post</Text>
     </View>
   );
 };

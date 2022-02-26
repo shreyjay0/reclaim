@@ -15,6 +15,8 @@ import {
 import { reclaimTheme as RT } from "../const/theme";
 import Home from "../screens/Home";
 import ListView from "../screens/ListView";
+import MapView from "../screens/MapView";
+import Post from "../screens/Post";
 
 export default Nav = () => {
   const Tab = createBottomTabNavigator();
@@ -38,8 +40,8 @@ export default Nav = () => {
         component={Home}
       />
       <Tab.Screen name="ListView" component={ListView} />
+      <Tab.Screen name="MapView" component={MapView} />
       <Tab.Screen name="Post" component={Post} />
-      <Tab.Screen name="Settings" component={Settings} />
     </Tab.Navigator>
   );
 };
