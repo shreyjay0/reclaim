@@ -1,9 +1,9 @@
 import React from "react";
-import { createStackNavigator } from "/@react-navigation/stack";
+import { createStackNavigator } from "@react-navigation/stack";
 import {
   BottomTabBar,
   createBottomTabNavigator,
-} from "/@react-navigation/bottom-tabs";
+} from "@react-navigation/bottom-tabs";
 import {
   View,
   Text,
@@ -13,6 +13,8 @@ import {
   ListViewBase,
 } from "react-native";
 import { reclaimTheme as RT } from "../const/theme";
+import Home from "../screens/Home";
+import ListView from "../screens/ListView";
 
 export default Nav = () => {
   const Tab = createBottomTabNavigator();
