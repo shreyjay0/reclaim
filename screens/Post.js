@@ -65,7 +65,8 @@ const styles = StyleSheet.create({
   },
   flipImage:{
     alignSelf: 'flex-end',
-    marginTop: -5,
+    marginTop: 45,
+    paddingRight: 10,
     position: 'absolute'
   }
 })

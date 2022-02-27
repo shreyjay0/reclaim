@@ -55,9 +55,9 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   pic: {
-    height: 690,
-    width: 370,
-    marginLeft: 10
+    height: 720,
+    width: 380,
+    marginLeft: 5
   },
   itemCode: {
     fontWeight: '600',

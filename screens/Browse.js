@@ -313,6 +313,6 @@ const styles = StyleSheet.create({
     textAlign: "right",
   },
   search:{
-    paddingTop: 5
+    paddingTop: 55
   }
 })
