@@ -12,6 +12,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   ListViewBase,
+  HomeStack
 } from "react-native";
 import { reclaimTheme as RT } from "../const/theme";
 import Browse from "../screens/Browse";
@@ -22,8 +23,10 @@ import Settings from "../screens/Settings";
 export default Nav = () => {
   const Tab = createBottomTabNavigator();
   return (
+    
     <Tab.Navigator
- screenOptions={({ route }) => ({
+    screenOptions={{ headerShown: false }}
+    screenOptions={({ route }) => ({
      tabBarIcon: ({
         focused, color, size }) => {
 
@@ -55,11 +58,12 @@ export default Nav = () => {
             activeTintColor: RT.colors.secondary,
             inactiveTintColor: RT.colors.mutedNav,
             }}
+            
            >
-      <Tab.Screen name="Browse" component={Browse} />
-      <Tab.Screen name="Search" component={Search} />
-      <Tab.Screen name="Share" component={Post} />
-      <Tab.Screen name="Settings" component={Settings} />
+      <Tab.Screen name="Browse" component={Browse} options={{headerShown: false}}/>
+      <Tab.Screen name="Search" component={Search} options={{headerShown: false}}/>
+      <Tab.Screen name="Share" component={Post} options={{headerShown: false}}/>
+      <Tab.Screen name="Settings" component={Settings} options={{headerShown: false}}/>
     </Tab.Navigator>
   );
 };
