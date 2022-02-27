@@ -4,6 +4,7 @@ import {
   BottomTabBar,
   createBottomTabNavigator,
 } from "@react-navigation/bottom-tabs";
+import { Ionicons } from '@expo/vector-icons';
 import {
   View,
   Text,
@@ -13,35 +14,52 @@ import {
   ListViewBase,
 } from "react-native";
 import { reclaimTheme as RT } from "../const/theme";
-import Home from "../screens/Home";
-import ListView from "../screens/ListView";
-import MapView from "../screens/MapView";
+import Browse from "../screens/Browse";
+import Search from "../screens/Search";
 import Post from "../screens/Post";
+import Settings from "../screens/Settings";
 
 export default Nav = () => {
   const Tab = createBottomTabNavigator();
   return (
-    <Tab.Navigator initialRouteName="Home">
-      <Tab.Screen
-        name="Home"
-        options={{
-          tabBarIcon: ({ focused, color, size }) => {
-            <Image
-              source={require("../assets/img/Browse.png")}
-              resizeMethod="scale"
-              style={{
-                width: 26,
-                height: 26,
-                tintColor: focused ? RT.colors.secondary : RT.colors.mutedNav,
-              }}
-            />;
-          },
-        }}
-        component={Home}
-      />
-      <Tab.Screen name="ListView" component={ListView} />
-      <Tab.Screen name="MapView" component={MapView} />
+    <Tab.Navigator
+ screenOptions={({ route }) => ({
+     tabBarIcon: ({
+        focused, color, size }) => {
+
+            let iconName;
+
+            if (route.name === "Browse") {
+            iconName = focused
+            ? 'checkmark-circle'
+            : 'checkmark-circle-outline';} 
+            else if (route.name === 'Search') {
+            iconName = focused
+            ? 'options'
+            : 'options-outline';}
+            else if (route.name === 'Post') {
+            iconName = focused
+            ? 'person'
+            : 'person-outline';}
+            else if (route.name === 'Settings') {
+            iconName = focused
+            ? 'car'
+            : 'car-outline'
+            }
+            
+            return <Ionicons name={iconName} size={size} color={color}     />;
+            },
+            })}
+        
+            tabBarOptions={{
+            activeTintColor: RT.colors.secondary,
+            inactiveTintColor: RT.colors.mutedNav,
+            }}
+           >
+      <Tab.Screen name="Browse" component={Browse} />
+      <Tab.Screen name="Search" component={Search} />
       <Tab.Screen name="Post" component={Post} />
+      <Tab.Screen name="Settings" component={Settings} />
     </Tab.Navigator>
   );
 };
