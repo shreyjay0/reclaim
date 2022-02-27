@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet ,Text, View, Button, Image} from 'react-native';
+import { StyleSheet ,Text, View, Button, Image, TouchableOpacity} from 'react-native';
 import { Camera } from 'expo-camera';
 
 export default function App() {
@@ -9,7 +9,7 @@ export default function App() {
   const [type, setType] = useState(Camera.Constants.Type.back);
 useEffect(() => {
     (async () => {
-      const cameraStatus = await Camera.requestPermissionsAsync();
+      const cameraStatus = await Camera.requestCameraPermissionsAsync();
       setHasCameraPermission(cameraStatus.status === 'granted');
 })();
   }, []);
@@ -42,18 +42,26 @@ const takePicture = async () => {
               );
             }}>
         </Button>
-       <Button title="Take Picture" onPress={() => takePicture()} />
-        {image && <Image source={{uri: image}} style={{flex:1}}/>}
+        {/* Picture taking */}
+        <TouchableOpacity style={styles.cameraButton} onPress={() => takePicture()}>
+          <Image source={require('./../assets/img/photo_buton.png')}/>
+        </TouchableOpacity>
+       {/*This is were the picture is saved/ taken, change this aspect */}
+        {image && <Image source={{uri: image}} style={{flex:.5}}/>} 
    </View>
   );
 }
 const styles = StyleSheet.create({
   cameraContainer: {
-      flex: 1,
-      flexDirection: 'row'
+    flex: 1,
+    flexDirection: 'row'
   },
   fixedRatio:{
-      flex: 1,
-      aspectRatio: 1
+    flex: 1,
+    aspectRatio: .5
+  },
+  cameraButton:{
+    justifyContent: 'center',
+    alignItems: 'center',
   }
 })
