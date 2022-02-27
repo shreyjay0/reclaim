@@ -32,25 +32,23 @@ const takePicture = async () => {
             type={type}
             ratio={'1:1'} />
       </View>
-      <Button
-            title="Flip Image"
-            onPress={() => {
-              setType(
-                type === Camera.Constants.Type.back
-                  ? Camera.Constants.Type.front
-                  : Camera.Constants.Type.back
-              );
-            }}>
-        </Button>
-        {/* Picture taking */}
-        <TouchableOpacity style={styles.cameraButton} onPress={() => takePicture()}>
-          <Image source={require('./../assets/img/photo_buton.png')}/>
-        </TouchableOpacity>
-       {/*This is were the picture is saved/ taken, change this aspect */}
-        {image && <Image source={{uri: image}} style={{flex:.5}}/>} 
+
+      {/* Flip Camera */}
+      <TouchableOpacity style={styles.flipImage} onPress={() => { setType(type === Camera.Constants.Type.back ? Camera.Constants.Type.front : Camera.Constants.Type.back)}}>
+        <Image source={require('./../assets/img/Flip_button.png')}/>
+      </TouchableOpacity>
+
+      {/* Picture taking */}
+      <TouchableOpacity style={styles.cameraButton} onPress={() => takePicture()}>
+        <Image source={require('./../assets/img/photo_buton.png')}/>
+      </TouchableOpacity>
+
+      {/*This is were the picture is saved/ taken, change this aspect */}
+      {image && <Image source={{uri: image}} style={{flex:.5}}/>} 
    </View>
   );
 }
+
 const styles = StyleSheet.create({
   cameraContainer: {
     flex: 1,
@@ -63,5 +61,11 @@ const styles = StyleSheet.create({
   cameraButton:{
     justifyContent: 'center',
     alignItems: 'center',
+    paddingBottom: 10,
+  },
+  flipImage:{
+    alignSelf: 'flex-end',
+    marginTop: -5,
+    position: 'absolute'
   }
 })
