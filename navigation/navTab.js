@@ -31,20 +31,20 @@ export default Nav = () => {
 
             if (route.name === "Browse") {
             iconName = focused
-            ? 'checkmark-circle'
-            : 'checkmark-circle-outline';} 
+            ? 'map'
+            : 'map-outline';} 
             else if (route.name === 'Search') {
             iconName = focused
-            ? 'options'
-            : 'options-outline';}
-            else if (route.name === 'Post') {
+            ? 'search'
+            : 'search-outline';}
+            else if (route.name === 'Share') {
             iconName = focused
-            ? 'person'
-            : 'person-outline';}
+            ? 'aperture'
+            : 'aperture-outline';}
             else if (route.name === 'Settings') {
             iconName = focused
-            ? 'car'
-            : 'car-outline'
+            ? 'cog'
+            : 'cog-outline'
             }
             
             return <Ionicons name={iconName} size={size} color={color}     />;
@@ -58,7 +58,7 @@ export default Nav = () => {
            >
       <Tab.Screen name="Browse" component={Browse} />
       <Tab.Screen name="Search" component={Search} />
-      <Tab.Screen name="Post" component={Post} />
+      <Tab.Screen name="Share" component={Post} />
       <Tab.Screen name="Settings" component={Settings} />
     </Tab.Navigator>
   );

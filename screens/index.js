@@ -1,6 +1,6 @@
 import Browse from "./Browse";
-import ListView from "./Search";
-import MapView from "./Settings";
+import Search from "./Search";
+import Settings from "./Settings";
 import Post from "./Post";
 
-export { Home, ListView, MapView, Post };
+export { Browse, Search, Post, Settings };

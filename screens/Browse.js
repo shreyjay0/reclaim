@@ -5,7 +5,7 @@ export default Browse = () => {
   return (
     <View>
       <StatusBar style="auto" />
-      <Text>Browse</Text>
+        
     </View>
   );
 };
