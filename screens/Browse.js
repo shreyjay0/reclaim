@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, Component } from "react";
 import { View, Text, StatusBar, StyleSheet, SafeAreaView, Image } from "react-native";
 import {Button, Card, FAB, IconButton, List, Paragraph, Title } from 'react-native-paper';
 import MapView from 'react-native-maps';
 import { Marker } from "react-native-svg";
+import { render } from "react-dom";
+import SearchBar from "react-native-dynamic-search-bar";
 
 var mapStyle = [
   {
@@ -184,76 +186,98 @@ var mapStyle = [
 export default Browse = () => {
 
   const [state, setState] = useState(1);
+  
 
   return (
-    <SafeAreaView style={styles.areaView}>
+    <><View style={styles.search}>
+      <SearchBar
+        height={50}
+        fontSize={20}
+        fontColor="#fdfdfd"
+        iconColor="#fdfdfd"
+        shadowColor="#282828"
+        cancelIconColor="#fdfdfd"
+        placeholder="Search any pieces ..." />
+    </View><SafeAreaView style={styles.areaView}>
         <MapView
-            customMapStyle={mapStyle}
-            style={{flex: 1}} 
-            initialRegion={{
+          customMapStyle={mapStyle}
+          style={{ flex: 1 }}
+          initialRegion={{
             latitude: 40.721597,
             longitude: -73.9898259,
             latitudeDelta: 0.09,
             longitudeDelta: 0.04
           }}>
-          {
-            state == 1 ?
+          {state == 1 ?
             <>
-            <MapView.Marker 
-              onPress = {() => {
-                setState(2)
-              }}
-             description = "pinpoint"
-              coordinate={{latitude: 40.721598, longitude: -73.989826}}>
-             <Image source={require('./../assets/img/marker_map.png')} />
-            </MapView.Marker>
+              <MapView.Marker
+                onPress={() => {
+                  setState(2);
+                } }
+                description="pinpoint"
+                coordinate={{ latitude: 40.721598, longitude: -73.989826 }}>
+                <Image source={require('./../assets/img/marker_map.png')} />
+              </MapView.Marker>
 
-            <MapView.Marker
-              onPress = {() => {
-                setState(2)
-              }}
-              description = "pinpoint"
-              coordinate={{latitude: 41.721599, longitude: -75.989827}}>
-              <Image source={require('./../assets/img/marker_map.png')} />
-            </MapView.Marker>
+              <MapView.Marker
+                onPress={() => {
+                  setState(2);
+                } }
+                description="pinpoint"
+                coordinate={{ latitude: 41.721599, longitude: -75.989827 }}>
+                <Image source={require('./../assets/img/marker_map.png')} />
+              </MapView.Marker>
 
-            <MapView.Marker
-              onPress = {() => {
-                setState(2)
-              }}
-              description = "pinpoint"
-              coordinate={{latitude: 40.8216, longitude: -74.989828}}>
+              <MapView.Marker
+                onPress={() => {
+                  setState(2);
+                } }
+                description="pinpoint"
+                coordinate={{ latitude: 40.8216, longitude: -74.989828 }}>
+                <Image source={require('./../assets/img/marker_map.png')} />
+              </MapView.Marker>
+
+              <MapView.Marker
+              onPress={() => {
+                setState(2);
+              } }
+              description="pinpoint"
+              coordinate={{ latitude: 40.731599, longitude: -73.999826 }}>
               <Image source={require('./../assets/img/marker_map.png')} />
-            </MapView.Marker>
+              </MapView.Marker>
+
+              <MapView.Marker
+              onPress={() => {
+                setState(2);
+              } }
+              description="pinpoint"
+              coordinate={{ latitude: 40.721599, longitude: -73.999926 }}>
+              <Image source={require('./../assets/img/marker_map.png')} />
+              </MapView.Marker>
             </>
-          :null
-          }
-          {
-            state == 2 ?
-            <Card >  
+            : null}
+          {state == 2 ?
+            <Card>
               <Card.Content style={styles.card_view}>
-                <List.Item 
-                  style={ styles.listItems}
+                <List.Item
+                  style={styles.listItems}
                   title="White Lorraine Tufted Chair"
                   description="One mile away" />
-                <Image style={styles.img_asset} source={require('./../assets/img/Test_objectone.png')}/> 
-                  <Paragraph style={styles.card_btn}>
-                    Continue {'\n'}
-                    Exit
-                  </Paragraph>
-              </Card.Content>     
+                <Image style={styles.img_asset} source={require('./../assets/img/Test_objectone.png')} />
+                <Paragraph style={styles.card_btn}>
+                  Continue {'\n'}
+                  Exit
+                </Paragraph>
+              </Card.Content>
             </Card>
-            :null
-          }
+            : null}
         </MapView>
-        {
-          state == 1 ?
-          <FAB 
-            style={styles.fab} 
+        {state == 1 ?
+          <FAB
+            style={styles.fab}
             icon="plus" />
-          :null
-        }
-    </SafeAreaView>
+          : null}
+      </SafeAreaView></>
   );
 }
 
@@ -287,5 +311,8 @@ const styles = StyleSheet.create({
   },
   listItems:{
     textAlign: "right",
+  },
+  search:{
+    paddingTop: 5
   }
 })
