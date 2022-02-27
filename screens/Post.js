@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
   cameraButton:{
     justifyContent: 'center',
     alignItems: 'center',
-    paddingBottom: 10,
+    paddingBottom: 23,
   },
   flipImage:{
     alignSelf: 'flex-end',
